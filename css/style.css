@@ -1,0 +1,130 @@
+@font-face {
+  font-family: 'Fira';
+  src: url("../img/FiraSans-Light.otf") format("opentype");
+}
+
+html{
+	font-size: 1.5em;
+	color: #222;
+}
+
+body{
+	padding: 1rem;
+	padding-bottom: 2rem;
+}
+
+* {
+	box-sizing: border-box;
+	line-height: 1rem;
+	font-size: 0.66666rem;
+	margin:0;
+    font-family: "Fira";
+}
+
+p, ul, li{
+	max-width: 32rem;
+}
+
+ul, ol{
+	padding-left: 2rem;
+}
+
+p + p{
+	margin-top: 1rem;
+}
+
+img{
+	vertical-align:bottom;
+}
+
+h1, h2, h3{
+	margin-top: 1rem;
+	line-height:2rem;
+	color: #333;
+}
+
+h1{
+	font-size:1.75rem;
+}
+
+h2{
+	font-size: 1.25rem;
+}
+
+main {
+    margin-top: 2rem;
+}
+
+input {
+	height:1.5rem;
+	margin: .25rem;
+	font-size: 1rem;
+	padding: 0;
+	border: 1px solid #666;
+	/*border-radius: 2px;*/
+	padding: 0 calc(1rem / 3);
+}
+
+button{
+	cursor: pointer;
+}
+
+header {
+    text-align: center;
+    margin-top:1rem;
+}
+
+.input-code-form div{
+    margin: 0 auto;
+}
+
+form {
+    width: 20rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+form .code-input {
+    text-align: center;
+    width: 95%;
+    height: 2rem;
+    border: 2px solid grey;
+    outline:2px solid black;
+}
+
+form .download-button {
+    border: 0;
+    width: 6rem;
+    height: 2rem;
+    background-color: HSL(0, 0%, 71%);
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top:0.5rem;
+}
+
+form .download-button:hover {
+    background-color: HSL(345, 91%, 54%);
+}
+
+.guide {
+    width: 30%;
+    margin: 0px auto;
+    margin-top:3rem;
+}
+
+.guide ol {
+    margin-top: 1rem;
+}
+
+.guide h2, .guide h3 {
+    text-align: center;
+}
+
+footer {
+    margin-top: 5rem;
+    text-align: right;
+}
+
+footer .sealcode-logo {
+    width: 10rem;
+}
