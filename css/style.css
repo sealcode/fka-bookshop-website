@@ -85,6 +85,7 @@ form {
 }
 
 form .code-input {
+    margin-top: 0;
     text-align: center;
     width: 95%;
     height: 2rem;
@@ -120,11 +121,15 @@ form .download-button:hover {
     text-align: center;
 }
 
+.guide h3 {
+    line-height: 1rem;
+}
+
 footer {
     margin-top: 5rem;
     text-align: right;
 }
 
 footer .sealcode-logo {
-    width: 10rem;
+    width: 5rem;
 }
