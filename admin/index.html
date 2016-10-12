@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Admin Panel</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+    <script src="js/sweetalert.min.js"></script>
+</head>
+<body>
+    <script>
+    function PopupCenter(url, title, w, h) {
+        // Fixes dual-screen position                         Most browsers      Firefox
+        var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+        var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+        var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+        var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+        var top = ((height / 2) - (h / 2)) + dualScreenTop;
+        var newWindow = window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=0, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+        // Puts focus on the newWindow
+        if (window.focus) {
+            newWindow.focus();
+        }
+    }
+
+    function Delete() {
+        swal({
+          title: "Uwaga!",
+          text: "Czy na pewno chcesz usunąć ten wpis?",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Usuń",
+          closeOnConfirm: false
+        },
+        function(){
+            swal("Usunięto!", "Ksiązka zostala usunieta z bazy danych", "success");
+        });
+    }
+    </script>
+    <div class="side-nav-panel">
+        <h1>Panel Admina</h1>
+        <!-- <h2>Menu</h2> -->
+
+        <ul>
+            <li id="add-book-item" onclick="PopupCenter('new-book.html','','600','350')">
+                Dodaj książkę
+            </li>
+            <!-- <li id="generate-codes-item">
+                Generuj kody
+            </li> -->
+            <li id="generate-codes-books-item">
+                Generuj wykaz książek i kodów
+            </li>
+        </ul>
+    </div>
+    <div class="main-panel">
+        <div class="main-panel-search">
+            <!-- <h2>Wyszukaj książkę w bazie danych</h2> -->
+            <input type="text" placeholder="Jan Kowalski; Nad Niemnem"/>
+            <button>Szukaj</button>
+        </div>
+        <div class="main-panel-table">
+            <h2>Wszystkie książki</h2>
+            <div class="main-panel-controls">
+                <button>Generuj kody dla zaznaczonych</button>
+                <button>Edytuj zaznaczone</button>
+                <button>Usuń zaznaczone</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+
+                        </th>
+                        <th>
+                            id
+                        </th>
+                        <th>
+                            autor
+                        </th>
+                        <th>
+                            tytuł
+                        </th>
+                        <th>
+                            liczba kodów
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Adam Kowalski
+                        </td>
+                        <td>
+                            Moja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            Marian Nowak
+                        </td>
+                        <td>
+                            Twoja walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            Joanna Bonk
+                        </td>
+                        <td>
+                            Wasza walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            4
+                        </td>
+                        <td>
+                            Stefania Kwiat
+                        </td>
+                        <td>
+                            Ich walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            Jacek Nowaczyk
+                        </td>
+                        <td>
+                            Nasza walka
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span class="edit" onclick="PopupCenter('edit-book.html','','600','350')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span onclick="Delete()">Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            6
+                        </td>
+                        <td>
+                            Siljusz Ramka-Praca
+                        </td>
+                        <td>
+                            Szopen i przyjaciele
+                        </td>
+                        <td>
+                            123
+                        </td>
+                        <td>
+                            <span>
+                                <img src="http://megaicons.net/static/img/icons_sizes/8/1331/16/stock-index-up-icon.png" />
+                                <span>Generuj kody</span>
+                            </span>
+                            <span>
+                                <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
+                                <span onclick="PopupCenter('edit-book.html','','600','300')">Edytuj</span>
+                            </span>
+                            <span>
+                                <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
+                                <span>Usuń</span>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>

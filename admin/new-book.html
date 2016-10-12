@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+    <script src="js/sweetalert.min.js"></script>
+</head>
+<body>
+    <div class="popup-new-book">
+        <h2>Dodaj nową książkę do bazy danych</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        Autor
+                    </td>
+                    <td>
+                        <input type="text" id="author" placeholder="Jan Niemiecki"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Tytuł
+                    </td>
+                    <td>
+                        <input type="text" id="title" placeholder="Moja walka"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Kody
+                    </td>
+                    <td>
+                        <input type="text" id="codes" placeholder="20" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="showAlert()">Dodaj</button>
+    </div>
+    <script>
+        function showAlert() {
+            const fields = [document.getElementById("author"), document.getElementById("title")];
+            let error = false;
+
+            for (let i = 0; i < fields.length; i++) {
+                if (fields[i].value === "") {
+                    fields[i].style.border = "1px solid red";
+                    error = true;
+                }
+            }
+
+            if (error) {
+                swal("Ups...", "Wymagane pola są puste!", "error");
+            }
+            else {
+                swal({
+                    title: "Sukces!",
+                    text: "Dodano nową książkę do bazy danych!",
+                    type: "success"
+                },
+                function() {
+                    window.close();
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'Fira';
+  src: url("../img/FiraSans-Light.otf") format("opentype");
+}
+
+html{
+	font-size: 1.5em;
+	color: #222;
+}
+
+body{
+	padding: 0rem;
+	padding-bottom: 2rem;
+}
+
+* {
+	box-sizing: border-box;
+	line-height: 1rem;
+	font-size: 0.66666rem;
+	margin:0;
+	font-family: "Fira";
+}
+
+p, ul, li{
+	max-width: 32rem;
+}
+
+ul, ol{
+	padding-left: 2rem;
+}
+
+p + p{
+	margin-top: 1rem;
+}
+
+img{
+	vertical-align:bottom;
+}
+
+h1, h2, h3{
+	margin-top: 1rem;
+	line-height:2rem;
+	color: #333;
+}
+
+h1{
+	font-size:1.75rem;
+}
+
+h2{
+	font-size: 1.25rem;
+}
+
+
+input {
+	height:1.5rem;
+	margin: .25rem;
+	font-size: calc(2rem / 3);
+	padding: 0;
+	border: 1px solid #666;
+	border-radius: 2px;
+	padding: 0 calc(1rem / 3);
+}
+
+input[type="submit"]{
+	cursor: pointer;
+}
+
+.side-nav-panel {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid black;
+    float: right;
+}
+
+.side-nav-panel ul li {
+    padding: 0.25rem 0;
+}
+
+.side-nav-panel ul li:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+.side-nav-panel h2, .side-nav-panel h1{
+	text-align: center;
+}
+
+.main-panel {
+    position: absolute;
+    height: auto;
+    width: 80%;
+    right: 0;
+    text-align:center;
+}
+
+.main-panel-search {
+	margin: 1rem auto 2rem;
+	width: 40%;
+}
+
+.main-panel-search input[type="text"] {
+	width: 84%;
+}
+
+.main-panel-controls {
+	margin: 1rem auto 0.5rem;
+    text-align:left;
+}
+
+.main-panel-table {
+    display: inline-block;
+}
+
+.main-panel-table table {
+	display: block;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.main-panel-table td {
+    padding: 0.5rem 2rem;
+}
+
+.main-panel-table tr td:first-child {
+    padding: 0;
+    padding-left: 0.5rem;
+}
+
+.main-panel-table tr:nth-child(even) {
+    background-color: hsl(200, 0%, 90%);
+}
+
+.main-panel-table tr td span[class="edit"]:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+.popup-new-book, .popup-edit-book {
+    text-align: center;
+}
+
+.popup-new-book h2, .popup-edit-book h2{
+    text-align: center;
+}
+
+.popup-new-book table, .popup-edit-book table {
+    margin: 1rem auto;
+}
+
+.popup-new-book button, .popup-edit-book button {
+    cursor: pointer;
+}
