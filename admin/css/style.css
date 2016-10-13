@@ -66,7 +66,7 @@ input[type="submit"]{
 	cursor: pointer;
 }
 
-.side-nav-panel {
+.nav-panel {
     margin: 0;
     padding: 0;
     position: fixed;
@@ -80,18 +80,18 @@ input[type="submit"]{
     align-items: center;
 }
 
-.side-nav-panel ul li {
+.nav-panel ul li {
     display: inline-block;
     /*padding: 0.25rem 0 0.5rem;*/
     margin: 0 0.5rem;
 }
 
-.side-nav-panel ul li:hover {
+.nav-panel ul li:hover {
     cursor: pointer;
     color: blue;
 }
 
-.side-nav-panel h2, .side-nav-panel h1{
+.nav-panel h2, .nav-panel h1{
     margin: 0;
 	/*text-align: center;*/
 }

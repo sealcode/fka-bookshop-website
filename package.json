@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "js": "browserify js/src/app.js -o js/bundle.js -t [ babelify --presets [ es2015 ] ]",
-    "js:watch": "watchify js/src/app.js -o js/bundle.js -t [ babelify --presets [ es2015 ] ]"
+    "js:watch": "watchify js/src/app.js -o js/bundle.js -t [ babelify --presets [ es2015 ] ]",
+    "react": "browserify admin/src/main.js -o admin/js/bundle.js -t [ babelify --presets [ es2015 react ] ]",
+    "react:watch": "watchify admin/src/main.js -o admin/js/bundle.js -t [ babelify --presets [ es2015 react ] ]"
   },
   "repository": {
     "type": "git",
