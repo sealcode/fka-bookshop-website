@@ -14,10 +14,28 @@ const popupCenter = (url, title, w, h) => {
     var top = ((height / 2) - (h / 2)) + dualScreenTop;
     var newWindow = window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=0, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
 
-    // Puts focus on the newWindow
-    if (window.focus) {
-        newWindow.focus();
-    }
+    newWindow.addEventListener('beforeunload', function() {
+        const event = new CustomEvent("filter", {detail: ''});
+        console.log(document);
+        document.dispatchEvent(event);
+    });
+}
+
+function deleteBook(id) {
+    swal({
+      title: "Uwaga!",
+      text: "Czy na pewno chcesz usunąć ten wpis?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Usuń",
+      closeOnConfirm: false
+    },
+    function(){
+        const event = new CustomEvent("delete", {detail: --id});
+        document.dispatchEvent(event);
+        swal("Usunięto!", "Ksiązka zostala usunieta z bazy danych", "success");
+    });
 }
 
 const Book = (props) => (
@@ -44,11 +62,11 @@ const Book = (props) => (
             </span>
             <span>
                 <img src="http://icons.iconarchive.com/icons/led24.de/led/16/pencil-icon.png" />
-                <span className="edit" onClick={() => {popupCenter('edit-book.html','','600','350')}}>Edytuj</span>
+                <span className="edit" onClick={() => {localStorage.setItem('book', JSON.stringify(props)); popupCenter('edit-book.html','','600','350')}}>Edytuj</span>
             </span>
             <span>
                 <img src="https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/delete_16x16.gif" />
-                <span>Usuń</span>
+                <span onClick={() => { deleteBook(props.id) }}>Usuń</span>
             </span>
         </td>
     </tr>

@@ -5,12 +5,13 @@ import BooksService from '../services/BooksService';
 
 
 export default class Books extends React.Component {
-    constructor() {
+    constructor(props) {
         super();
-        this.showBooks = this.showBooks.bind(this);
+        this.props = props
+        this.displayBooks = this.displayBooks.bind(this);
     }
-    showBooks(books) {
-        return books.map( (book, index) => <Book key={index} id={book.id} author={book.author} title={book.title} codes={book.codes} />)
+    displayBooks() {
+        return this.props.books.map( (book, index) => <Book key={index} id={++index} author={book.author} title={book.title} codes={book.codes} />)
     }
     render() {
         return (
@@ -26,7 +27,7 @@ export default class Books extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.showBooks(BooksService().getBooks())}
+                    {this.displayBooks()}
                 </tbody>
             </table>
         )

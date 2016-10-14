@@ -5,7 +5,7 @@ const allBooks = [
             {id: 1, author: "Adam Niemiecki", title: "Moja walka", codes: "10"},
             {id: 1, author: "Adam Niemiecki", title: "Moja walka", codes: "10"},
             {id: 1, author: "Adam Niemiecki", title: "Moja walka", codes: "10"},
-            {id: 1, author: "Adam Jawor", title: "Moja walka", codes: "10"},
+            {id: 1, author: "Adam Jawor", title: "twoja walka", codes: "10"},
             {id: 1, author: "Adam Niemiecki", title: "Moja walka", codes: "10"},
             {id: 1, author: "Adam Niemiecki", title: "Moja walka", codes: "10"},
             {id: 1, author: "Adam Niemiecki", title: "Moja walka", codes: "10"},
