@@ -1,8 +1,6 @@
 import React from 'react';
 
 import Book from './Book';
-import BooksService from '../services/BooksService';
-
 
 export default class Books extends React.Component {
     constructor(props) {

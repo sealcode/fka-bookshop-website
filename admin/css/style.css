@@ -80,6 +80,11 @@ input[type="submit"]{
     align-items: center;
 }
 
+.nav-panel > div {
+    display: flex;
+    align-items: center;
+}
+
 .nav-panel ul li {
     display: inline-block;
     /*padding: 0.25rem 0 0.5rem;*/
@@ -115,6 +120,10 @@ input[type="submit"]{
 	width: 80%;
 }
 
+.main-panel-search > form {
+    width: 20rem;
+}
+
 .main-panel-controls {
 	margin: 1rem auto 0.5rem;
     text-align:left;
@@ -122,6 +131,7 @@ input[type="submit"]{
 
 .main-panel-table {
     display: inline-block;
+    margin-bottom: 2rem;
 }
 
 .main-panel-table table {
@@ -143,23 +153,31 @@ input[type="submit"]{
     background-color: hsl(200, 0%, 90%);
 }
 
-.main-panel-table tr td span[class="edit"]:hover {
+.main-panel-table tr td span[class="controls"]:hover {
     cursor: pointer;
     color: blue;
 }
 
-.popup-new-book, .popup-edit-book {
+.popup {
     text-align: center;
 }
 
-.popup-new-book h2, .popup-edit-book h2{
+.popup h2 {
     text-align: center;
 }
 
-.popup-new-book table, .popup-edit-book table {
+.popup table {
     margin: 1rem auto;
 }
 
-.popup-new-book button, .popup-edit-book button {
+.popup button {
     cursor: pointer;
+}
+
+#sealcode-logo {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 7rem;
+    margin: 0.5rem;
 }

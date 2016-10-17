@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="popup">
-        <h2>Dodaj nową książkę do bazy danych</h2>
+        <h2>Generuj kody</h2>
         <table>
             <tbody>
                 <tr>
@@ -16,7 +16,7 @@
                         Autor
                     </td>
                     <td>
-                        <input type="text" id="author" onKeyUp="validNameHandler(this)" placeholder="Jan Niemiecki"/>
+                        <strong><span id="author"></span></strong>
                     </td>
                 </tr>
                 <tr>
@@ -24,7 +24,7 @@
                         Tytuł
                     </td>
                     <td>
-                        <input type="text" id="title" onKeyUp="validNameHandler(this)" placeholder="Moja walka"/>
+                        <strong><span id="title"></span></strong>
                     </td>
                 </tr>
                 <tr>
@@ -32,15 +32,15 @@
                         Kody
                     </td>
                     <td>
-                        <input type="text" id="codes" placeholder="20" />
+                        <input type="text" id="codes" />
                     </td>
                 </tr>
             </tbody>
         </table>
-        <button onclick="showAlert()">Dodaj</button>
+        <button onclick="showAlert()">Generuj</button>
     </div>
 </body>
 </html>
 
-<script src="js/new-book.js"></script>
 <script src="js/lib/sweetalert.min.js"></script>
+<script src="js/generate-codes.js"></script>
