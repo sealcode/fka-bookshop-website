@@ -126,10 +126,12 @@ form .download-button:hover {
 }
 
 footer {
-    margin-top: 5rem;
-    text-align: right;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 0.5rem;
 }
 
 footer .sealcode-logo {
-    width: 5rem;
+    width: 6rem;
 }
